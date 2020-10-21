@@ -1,0 +1,6 @@
+def reverser(message):
+    return message[::-1]
+
+
+message = reverser("test")
+print(message)
