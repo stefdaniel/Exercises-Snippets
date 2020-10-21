@@ -1,27 +1,29 @@
 import pyperclip
 
-message=""
-key = 13
 
-mode = "encrypt"
-letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-translated = ""
-message = message.upper()
-for symbol in message:
-    if symbol in letters:
-        num = letters.find(symbol)
-        if mode == "encrypt":
-            num=num + key
-        elif mode == "decrypt":
-            num = num - key
-        if num >= len(letters):
-            num= num - len(letters)
-        elif num < 0:
-            num = num + len(letters)
+def encdenc(mssg,key,mode):
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    translated = ""
+    mssg = mssg.upper()
+    for symbol in mssg:
+        if symbol in letters:
+            num = letters.find(symbol)
+            if mode == "encrypt":
+                num=num + key
+            elif mode == "decrypt":
+                num = num - key
+            if num >= len(letters):
+                num= num - len(letters)
+            elif num < 0:
+                num = num + len(letters)
+            translated = translated + letters[num]
+        else:
+            translated = translated + symbol
 
-        translated = translated + letters[num]
-    else:
-        translated = translated + symbol
-print(translated)
 
-pyperclip.copy(translated)
+    print(translated)
+    pyperclip.copy(translated)
+
+
+encdenc("alicadabra",12,"encrypt")
+encdenc("MXUOMPMNDM",12,"decrypt")
