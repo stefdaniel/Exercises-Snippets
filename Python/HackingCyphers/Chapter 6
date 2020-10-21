@@ -2,7 +2,7 @@ import pyperclip
 
 
 def encdenc(mssg,key,mode):
-    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    letters = ' "!#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`a bcdefghijklmnopqrstuvwxyz{|}~'
     translated = ""
     mssg = mssg.upper()
     for symbol in mssg:
