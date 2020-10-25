@@ -1,0 +1,66 @@
+import random,sys 
+
+# variables
+
+wins = 0 
+losses = 0
+ties = 0
+
+#main loop
+while True:
+    print('%s Wins,%s Losses, %s ties' % (wins,losses,ties))
+    #player Loop
+    while True:
+        print ('Player move r p s or q')
+        playerMove = input()
+        if playerMove == 'q':
+            sys.exit()
+        if playerMove == 'r' or playerMove == 'p' or playerMove == 's':
+            break
+        print('r p s q only')
+
+
+        #display move
+
+        if playerMove == str('r'):
+            print('r vs ')
+        elif playerMove == 'p':
+            print ('p vs ')
+        elif playerMove == 'sudos':
+            print ('s vs ')
+
+        randomNumber = random.randint(1,3)
+        if randomNumber == 1:
+            computerMove = 'r'
+            print('r')
+        if randomNumber == 2:
+            computerMove = 'p'
+            print ('p')
+        if randomNumber == 3:
+            computerMove = 's'
+            print ('s')
+
+        #display win record
+
+        if playerMove == computerMove:
+            print('tie')
+            ties = ties+1
+        elif playerMove == 'r' and computerMove =='s':
+            print('win')
+            wins = wins + 1
+        elif playerMove == 'p' and computerMove == 'r':
+            print('win')
+            wins=wins+1
+        elif playerMove == 's' and computerMove == 'p':
+            print('win')
+            wins = wins + 1
+        elif playerMove == 'r' and computerMove == 'p':
+            print('lose')
+            loseses = losses +1
+        elif playerMove == 'p' and computerMove == 's':
+            print('lose')
+            losses= losses + 1
+        elif playerMove == 's' and computerMove == 'r':
+            print('lsoe')
+            losses = losses + 1  
+        
